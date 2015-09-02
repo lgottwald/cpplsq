@@ -1,0 +1,21 @@
+@PACKAGE_INIT@ 
+
+set_and_check (
+  cpplsq_INCLUDE_DIR
+  @PACKAGE_cpplsq_INCLUDE_DIR@
+  )
+  
+set_and_check(
+  libsimd_INCLUDE_DIRS
+  @PACKAGE_libsimd_INCLUDE_DIRS@
+)
+
+set(
+  cpplsq_INCLUDE_DIRS
+  ${cpplsq_INCLUDE_DIR}
+  ${libsimd_INCLUDE_DIRS}
+)
+
+set ( cpplsq_LIBRARIES cpplsq blas )
+set ( cpplsq_DEFINITIONS "@ARCH_FLAGS@" ) 
+include ( "${CMAKE_CURRENT_LIST_DIR}/cpplsq-targets.cmake" )
