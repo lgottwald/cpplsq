@@ -92,6 +92,15 @@ private:
    REAL diffval;
 };
 
+//Outstream "<<" operator
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const SingleDiffExpr<T> &x)
+{
+   // write obj to stream
+   os << x.getValue();
+   return os;
+}
+
 template<typename REAL>
 struct NumTypeTraits<SingleDiff<REAL>>
 {

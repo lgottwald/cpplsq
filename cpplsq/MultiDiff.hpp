@@ -208,6 +208,15 @@ private:
    REAL *dval;
 };
 
+//Outstream "<<" operator
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const MultiDiffExpr<T> &x)
+{
+   // write obj to stream
+   os << x.getValue();
+   return os;
+}
+
 
 template<typename REAL>
 struct NumTypeTraits<MultiDiff<REAL>>
