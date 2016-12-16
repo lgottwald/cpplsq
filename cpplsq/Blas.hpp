@@ -60,7 +60,7 @@ struct Blas
       return cblas_sdot( N, X, incX, Y, incY );
    }
 
-   static void gemv( const enum CBLAS_TRANSPOSE TransA, const int M, const int N,
+   static void gemv( const CBLAS_TRANSPOSE TransA, const int M, const int N,
                      const double alpha, const double *A, const int lda,
                      const double *X, const int incX, const double beta,
                      double *Y, const int incY )
@@ -69,7 +69,7 @@ struct Blas
    }
 
 
-   static void gemv( const enum CBLAS_TRANSPOSE TransA, const int M, const int N,
+   static void gemv( const CBLAS_TRANSPOSE TransA, const int M, const int N,
                      const float alpha, const float *A, const int lda,
                      const float *X, const int incX, const float beta,
                      float *Y, const int incY )
@@ -87,21 +87,21 @@ struct Blas
       cblas_sscal( N, alpha, X, incX );
    }
 
-   static void syrk( const enum CBLAS_TRANSPOSE Trans, const int N, const int K,
+   static void syrk( const CBLAS_TRANSPOSE Trans, const int N, const int K,
                      const double alpha, const double *A, const int lda,
                      const double beta, double *C, const int ldc )
    {
       cblas_dsyrk( Order, Uplo, Trans, N, K, alpha, A, lda, beta, C, ldc );
    }
 
-   static void syrk( const enum CBLAS_TRANSPOSE Trans, const int N, const int K,
+   static void syrk( const CBLAS_TRANSPOSE Trans, const int N, const int K,
                      const float alpha, const float *A, const int lda,
                      const float beta, float *C, const int ldc )
    {
       cblas_ssyrk( Order, Uplo, Trans, N, K, alpha, A, lda, beta, C, ldc );
    }
 
-   static void symm( const enum CBLAS_SIDE Side, const int M, const int N,
+   static void symm( const CBLAS_SIDE Side, const int M, const int N,
                      const double alpha, const double *A, const int lda,
                      const double *B, const int ldb, const double beta,
                      double *C, const int ldc )
@@ -109,7 +109,7 @@ struct Blas
       cblas_dsymm( Order, Side, Uplo, M, N, alpha, A, lda, B, ldb, beta, C, ldc );
    }
 
-   static void symm( const enum CBLAS_SIDE Side, const int M, const int N,
+   static void symm( const CBLAS_SIDE Side, const int M, const int N,
                      const float alpha, const float *A, const int lda,
                      const float *B, const int ldb, const float beta,
                      float *C, const int ldc )
@@ -117,7 +117,7 @@ struct Blas
       cblas_ssymm( Order, Side, Uplo, M, N, alpha, A, lda, B, ldb, beta, C, ldc );
    }
 
-   static void trsv( const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_DIAG Diag,
+   static void trsv( const CBLAS_TRANSPOSE TransA, const CBLAS_DIAG Diag,
                      const int N, const double *A, const int lda, double *X,
                      const int incX )
    {
@@ -125,7 +125,7 @@ struct Blas
    }
 
 
-   static void trsv( const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_DIAG Diag,
+   static void trsv( const CBLAS_TRANSPOSE TransA, const CBLAS_DIAG Diag,
                      const int N, const float *A, const int lda, float *X,
                      const int incX )
    {
@@ -133,16 +133,16 @@ struct Blas
 
    }
 
-   static void trmm( const enum CBLAS_SIDE Side, const enum CBLAS_TRANSPOSE TransA,
-                     const enum CBLAS_DIAG Diag, const int M, const int N,
+   static void trmm( const CBLAS_SIDE Side, const CBLAS_TRANSPOSE TransA,
+                     const CBLAS_DIAG Diag, const int M, const int N,
                      const double alpha, const double *A, const int lda,
                      double *B, const int ldb )
    {
       cblas_dtrmm( Order, Side, Uplo, TransA, Diag, M, N, alpha, A, lda, B, ldb );
    }
 
-   static void trmm( const enum CBLAS_SIDE Side, const enum CBLAS_TRANSPOSE TransA,
-                     const enum CBLAS_DIAG Diag, const int M, const int N,
+   static void trmm( const CBLAS_SIDE Side, const CBLAS_TRANSPOSE TransA,
+                     const CBLAS_DIAG Diag, const int M, const int N,
                      const float alpha, const float *A, const int lda,
                      float *B, const int ldb )
    {
